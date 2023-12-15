@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Living Real Estate</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+    :root {
+      --primary: #d2e0f4;
+      --secondary: #5a7494;
+      --accent: #cf3333;
+      --focusaccent: #b20606;
+      --accent2: #939bb1;
+      --foreground: rgb(43, 45, 53);
+      --foregroundlight: #ecf0ff;
+      --shadow: rgb(4, 16, 23);
+      font-family: "Poppins", sans-serif;
+    }
+    .material-symbols-outlined {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+    body {
+      text-align: center;
+      color: var();
+      background: linear-gradient(
+        to bottom,
+        rgba(210, 224, 244, 1) 37%,
+        rgba(191, 212, 242, 1) 100%
+      );
+      margin: 0;
+      padding: 0;
+    }
+    p {
+      text-indent: 36px;
+      text-align: justify;
+    }
+    q {
+      font-style: italic;
+    }
+    .navbar {
+      display: flex;
+      vertical-align: middle;
+      align-items: center;
+      justify-content: flex-start;
+      height: 6vh;
+      width: 100%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      position: fixed;
+      z-index: 2;
+      background-color: var(--primary);
+    }
+    .navbar img {
+      height: 6vh;
+      width: 10vw;
+      min-width: 80px;
+      cursor: pointer;
+
+      transition: 0.3s ease;
+    }
+    .navbar img:hover {
+      width: 11vw;
+      filter: drop-shadow(0px 0px 2px rgb(0 0 0 / 0.3));
+      transition: 0.3s ease;
+    }
+    .navbar ul {
+      padding: 0;
+      margin: 24px 0;
+      display: flex;
+      list-style: none;
+    }
+    .navbar ul li {
+      width: 12vw;
+
+      transition: 0.3s ease;
+      padding: 8px;
+      overflow: hidden;
+    }
+    .navbar ul li:hover {
+      width: 13vw;
+      transition: 0.3s ease;
+    }
+    .navbar ul li a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-size: large;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .navbar ul li:hover a {
+      color: var(--secondary);
+      transition: 0.3s ease;
+    }
+    section,
+    header {
+      min-height: 82vh;
+      overflow: hidden;
+    }
+    section.floorplan {
+      padding: 10vh 0 0 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      overflow: hidden;
+      height: 83.05vh;
+    }
+    .content .container {
+      height: 68vh;
+      overflow: scroll;
+      cursor: grab;
+      position: relative;
+      -webkit-mask-image: linear-gradient(
+        to top,
+        rgba(229, 229, 229, 0) 0%,
+        rgba(44, 44, 44, 1) 5%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      mask-image: linear-gradient(
+        to top,
+        rgba(229, 229, 229, 0) 0%,
+        rgba(44, 44, 44, 1) 5%,
+        rgba(0, 0, 0, 1) 100%
+      );
+    }
+    .content .container::-webkit-scrollbar {
+      display: none;
+    }
+    .content .title {
+      background-color: var(--foreground);
+      height: 100px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      color: var(--foregroundlight);
+      font-size: large;
+    }
+    .floorplan img {
+      -webkit-filter: drop-shadow(4px 4px 3px rgba(43, 45, 53, 0.3));
+      filter: drop-shadow(4px 4px 3px rgba(43, 45, 53, 0.3));
+    }
+    .highlight {
+      border-radius: 18px;
+      background-color: var(--accent);
+      opacity: 1;
+      z-index: 1;
+      transition: all 0.3s ease;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      background-color: transparent;
+      pointer-events: none;
+    }
+    .highlight h1 {
+      color: var(--foreground);
+      font-size: larger;
+      transition: all 0.3s ease;
+    }
+    .highlight h6 {
+      color: var(--foreground);
+      transition: all 0.3s ease;
+    }
+    .highlight.hovered {
+      box-shadow: 0px 0px 24px var(--foreground);
+      opacity: 1;
+      background-color: var(--accent);
+      transition: all 0.3s ease;
+    }
+    .highlight.hovered h1 {
+      color: var(--foregroundlight);
+      font-size: x-large;
+      transition: 0.3s ease;
+    }
+    .highlight.hovered h6 {
+      color: var(--foregroundlight);
+      font-size: small;
+      transition: all 0.3s ease;
+    }
+    .highlight.dining {
+      position: absolute;
+      width: 220px;
+      height: 450px;
+      left: 310px;
+      top: 28px;
+    }
+
+    .highlight.living {
+      position: absolute;
+      width: 256px;
+      height: 450px;
+      left: 532px;
+      top: 28px;
+    }
+    .highlight.master {
+      position: absolute;
+      width: 240px;
+      height: 358px;
+      left: 806px;
+      top: 22px;
+    }
+    .highlight.kitchen {
+      position: absolute;
+      width: 214px;
+      height: 376px;
+      left: 308px;
+      top: 522px;
+    }
+    .highlight.library {
+      position: absolute;
+      width: 180px;
+      height: 210px;
+      top: 558px;
+      left: 696px;
+    }
+    footer {
+      padding-bottom: 28px;
+    }
+  </style>
+
+  <body>
+    <nav class="navbar" id="navbar">
+      <img id="homelink" src="assets/logo.svg" alt="logo" />
+      <ul>
+        <li>
+          <a><nobr>FLOOR PLAN</nobr></a>
+        </li>
+        <li id="dininglink">
+          <a href="diningroom.html"><nobr>DINING ROOM</nobr></a>
+        </li>
+        <li id="livinglink">
+          <a href="livingroom.html"><nobr>LIVING ROOM</nobr></a>
+        </li>
+        <li id="masterlink">
+          <a href="masterbedroom.html"><nobr>MASTER BEDROOM</nobr></a>
+        </li>
+        <li id="kitchenlink">
+          <a><nobr>KITCHEN</nobr></a>
+        </li>
+        <li id="librarylink">
+          <a href="library.html"><nobr>LIBRARY</nobr></a>
+        </li>
+      </ul>
+    </nav>
+    <section class="floorplan" id="floorplan">
+      <div class="content">
+        <div class="title">
+          <h1>Bungalow Home Floor Plan</h1>
+        </div>
+
+        <div class="container" id="floorplancontainer">
+          <div class="highlight living" id="hlliving">
+            <h1>Living Room</h1>
+          </div>
+          <div class="highlight dining" id="hldining">
+            <h1>Dining Room</h1>
+          </div>
+          <div class="highlight master" id="hlmaster">
+            <h1>Master Bedroom</h1>
+          </div>
+          <div class="highlight kitchen" id="hlkitchen">
+            <h1>Kitchen</h1>
+            <h6>(unavailable for preview)</h6>
+          </div>
+          <div class="highlight library" id="hllibrary">
+            <h1>Library</h1>
+          </div>
+          <img
+            id="floorplanimg"
+            src="assets/floorplan.svg"
+            alt="floorplan"
+            usemap="#floorplanmap"
+          />
+
+          <map name="floorplanmap">
+            <area
+              shape="rect"
+              coords="310,28,530,478"
+              alt="dining"
+              href="diningroom.html"
+            />
+            <area
+              shape="rect"
+              coords="532,28,788,478"
+              alt="living"
+              href="livingroom.html"
+            />
+            <area
+              class="map"
+              shape="rect"
+              coords="806,22,1046,380"
+              alt="master"
+              href="masterbedroom.html"
+            />
+            <area
+              class="map"
+              shape="rect"
+              coords="696,558,876,768"
+              alt="master"
+              href="library.html"
+            />
+          </map>
+        </div>
+      </div>
+    </section>
+    <footer>Copyright © 2023</footer>
+  </body>
+  <script>
+    const navbar = document.getElementById("navbar");
+    const homelink = document.getElementById("homelink");
+    const dininglink = document.getElementById("dininglink");
+    const livinglink = document.getElementById("livinglink");
+    const masterlink = document.getElementById("masterlink");
+    const kitchenlink = document.getElementById("kitchenlink");
+    const librarylink = document.getElementById("librarylink");
+    const hlliving = document.getElementById("hlliving");
+    const hldining = document.getElementById("hldining");
+    const hlmaster = document.getElementById("hlmaster");
+    const hlkitchen = document.getElementById("hlkitchen");
+    const hllibrary = document.getElementById("hllibrary");
+    const floorplanimg = document.getElementById("floorplancontainer");
+    homelink.addEventListener("click", function () {
+      window.location.href = "ex2.html";
+    });
+
+    document.addEventListener("mousemove", function () {
+      if (navbar.matches(":hover")) {
+        if (dininglink.matches(":hover")) {
+          hldining.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+          highlight(hldining, true);
+        } else {
+          highlight(hldining, false);
+        }
+        if (livinglink.matches(":hover")) {
+          hlliving.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+          highlight(hlliving, true);
+        } else {
+          highlight(hlliving, false);
+        }
+        if (kitchenlink.matches(":hover")) {
+          hlkitchen.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+          highlight(hlkitchen, true);
+        } else {
+          highlight(hlkitchen, false);
+        }
+        if (librarylink.matches(":hover")) {
+          hllibrary.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+          highlight(hllibrary, true);
+        } else {
+          highlight(hllibrary, false);
+        }
+        if (masterlink.matches(":hover")) {
+          hlmaster.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+          highlight(hlmaster, true);
+        } else {
+          highlight(hlmaster, false);
+        }
+        return;
+      }
+
+      highlightIfMouseInside(hlliving);
+      highlightIfMouseInside(hldining);
+      highlightIfMouseInside(hlmaster);
+      highlightIfMouseInside(hllibrary);
+      highlightIfMouseInside(hlkitchen);
+    });
+    function highlight(ele, add) {
+      if (add) {
+        ele.classList.add("hovered");
+      } else {
+        ele.classList.remove("hovered");
+      }
+    }
+    function highlightIfMouseInside(ele) {
+      if (floorplanimg.matches(":hover") && insideX(ele) && insideY(ele)) {
+        ele.classList.add("hovered");
+      } else {
+        ele.classList.remove("hovered");
+      }
+    }
+    function insideX(ele) {
+      var e = window.event;
+      var elerect = ele.getBoundingClientRect();
+      if (elerect.left < e.pageX && elerect.left + elerect.width > e.pageX) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    function insideY(ele) {
+      var e = window.event;
+      var elerect = ele.getBoundingClientRect();
+      if (elerect.top < e.pageY && elerect.top + elerect.height > e.pageY) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+  <script>
+    let mouseDown = false;
+    let startX, scrollLeft;
+    let startY, scrollDown;
+    const slider = document.querySelector(".container");
+    const startDragging = (e) => {
+      mouseDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      startY = e.pageY - slider.offsetTop;
+      scrollLeft = slider.scrollLeft;
+      scrollTop = slider.scrollTop;
+    };
+    const stopDragging = (e) => {
+      mouseDown = false;
+    };
+    const move = (e) => {
+      e.preventDefault();
+      if (!mouseDown) {
+        return;
+      }
+      const x = e.pageX - slider.offsetLeft;
+      const y = e.pageY - slider.offsetTop;
+      const scrollX = x - startX;
+      const scrollY = y - startY;
+      slider.scrollLeft = scrollLeft - scrollX;
+      slider.scrollTop = scrollTop - scrollY;
+    };
+    slider.addEventListener("mousemove", move, false);
+    slider.addEventListener("mousedown", startDragging, false);
+    slider.addEventListener("mouseup", stopDragging, false);
+    slider.addEventListener("mouseleave", stopDragging, false);
+  </script>
+</html>

@@ -21,21 +21,24 @@ body {
   color: var(--text);
   margin: 0;
   padding: 0;
-  background: var(--darkaccent) url("img/hero.jpg") center/cover;
+  background: var(--darkaccent) url("assets/hero.jpg") center/cover;
   background-blend-mode: multiply;
   background-attachment: fixed;
   height: 100vh;
 }
+button {
+  transition: 0.3s ease;
+  cursor: pointer;
+}
 
 .navbar {
   display: flex;
-  vertical-align: middle;
+  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   height: 12vh;
   width: 100vw;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding: 1% 0;
   position: fixed;
 }
 .navbar div {
@@ -72,15 +75,7 @@ body {
   transition: 0.3s ease;
   cursor: pointer;
 }
-.navbar .navlinks li {
-  margin-right: 12px;
-}
-
-.navbar a:hover {
-  color: var(--accent);
-}
-
-.navbar ul {
+.navbar .navlinks {
   opacity: 1;
   padding: 12px 12px;
   list-style: none;
@@ -89,19 +84,21 @@ body {
   display: inline-flex;
   transition: 0.3s ease;
 }
-.navbar ul li {
+.navbar .navlinks li {
   margin-right: 12px;
 }
-.navbar ul.collapsewidth {
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+.navbar .navlinks.collapsewidth {
   width: 46px;
   opacity: 0.9;
   overflow: hidden;
   transition: 0.3s ease;
 }
-button {
-  transition: 0.3s ease;
-  cursor: pointer;
-}
+
 .navbar button {
   border: 2px solid var(--secondary);
   background-color: transparent;
@@ -141,7 +138,7 @@ button {
   align-items: center;
   width: 100%;
 }
-.navbar .projects-btn #projexpandmore {
+.navbar .projects-btn span {
   transition: 0.3s ease;
 }
 .navbar .projects-popup {
@@ -149,29 +146,39 @@ button {
   margin: 0;
   padding: 12px 24px 12px 12px;
   list-style: none;
-  display: inline;
-  justify-content: flex-start;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   background-color: transparent;
   position: absolute;
   overflow: hidden;
   opacity: 0;
   height: 0;
+  z-index: 1;
   width: auto;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
   box-shadow: 0px 0px 10px 0px var(--shadow);
-  -webkit-transition: opacity 0.5s ease, height 0.3s ease;
-  -moz-transition: opacity 0.5s ease, height 0.3s ease;
-  -ms-transition: opacity 0.5s ease, height 0.3s ease;
-  -o-transition: opacity 0.5s ease, height 0.3s ease;
-  transition: opacity 0.5s ease, height 0.3s ease;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.navbar .projects-popup li {
+  display: flex;
+  flex-direction: row;
 }
 .navbar .projects-popup li a {
   text-decoration: none;
   color: var(--text);
   text-align: left;
   transition: 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .projects-popup li a * {
+  margin-right: 12px;
 }
 .navbar .projects-popup li a:hover {
   color: var(--accent);
@@ -182,13 +189,10 @@ button {
   transition: 0.3s ease;
 }
 .navbar .projects-popup.expandheight {
-  height: 180px;
+  height: 200px;
+  pointer-events: all;
   opacity: 1;
-  -webkit-transition: opacity 0.5s ease, height 0.3s ease;
-  -moz-transition: opacity 0.5s ease, height 0.3s ease;
-  -ms-transition: opacity 0.5s ease, height 0.3s ease;
-  -o-transition: opacity 0.5s ease, height 0.3s ease;
-  transition: opacity 0.5s ease, height 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .navbar .github-btn:hover {
@@ -342,7 +346,7 @@ button {
   margin: 12%;
 }
 .herobanner h1 {
-  font-size: 15vh;
+  font-size: 10vw;
   text-shadow: 0.8vh 0px var(--darkaccent), 3px 3px 10px var(--shadow);
 }
 .videodiv {
@@ -356,4 +360,7 @@ button {
   z-index: -1;
   opacity: 0.3;
   position: fixed;
+}
+.projecttypeicon {
+  height: 24px;
 }

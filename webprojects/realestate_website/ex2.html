@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Living Real Estate</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+    :root {
+      --primary: #d2e0f4;
+      --secondary: #5a7494;
+      --accent: #cf3333;
+      --focusaccent: #b20606;
+      --accent2: #939bb1;
+      --foreground: rgb(43, 45, 53);
+      --foregroundlight: #ecf0ff;
+      --shadow: rgb(4, 16, 23);
+      font-family: "Poppins", sans-serif;
+    }
+    .material-symbols-outlined {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+    body {
+      text-align: center;
+      color: var();
+      background: linear-gradient(
+        to bottom,
+        rgba(210, 224, 244, 1) 37%,
+        rgba(191, 212, 242, 1) 100%
+      );
+      margin: 0;
+      padding: 0;
+    }
+    p {
+      text-indent: 36px;
+      text-align: justify;
+    }
+    q {
+      font-style: italic;
+    }
+    .navbar {
+      display: flex;
+      vertical-align: middle;
+      align-items: center;
+      justify-content: flex-start;
+      height: 6vh;
+      width: 100%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      position: fixed;
+      z-index: 2;
+      background-color: rgba(210, 224, 244, 1);
+    }
+    .navbar img {
+      height: 6vh;
+      width: 10vw;
+      min-width: 80px;
+      cursor: pointer;
+
+      transition: 0.3s ease;
+    }
+    .navbar img:hover {
+      width: 11vw;
+      filter: drop-shadow(0px 0px 2px rgb(0 0 0 / 0.3));
+      transition: 0.3s ease;
+    }
+    .navbar ul {
+      padding: 0;
+      margin: 24px 0;
+      display: flex;
+      list-style: none;
+    }
+    .navbar ul li {
+      width: 10vw;
+      min-width: 80px;
+      transition: 0.3s ease;
+      padding: 8px;
+      overflow: hidden;
+    }
+    .navbar ul li:hover {
+      width: 11vw;
+      transition: 0.3s ease;
+    }
+    .navbar ul li a {
+      font-size: large;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .navbar ul li:hover a {
+      color: var(--secondary);
+      transition: 0.3s ease;
+    }
+    section,
+    header {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    section.promotion .content {
+      background: url("assets/bungalow.jpg");
+      box-shadow: 0px 2px 36px -12px var(--shadow);
+      margin: 14vh 24px 24px 24px;
+      border-radius: 24px;
+      min-height: 80vh;
+      overflow: hidden;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+    }
+
+    .promotion .promotioninfo {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--foreground);
+      padding: 12vh 6vw 12vh 6vw;
+      margin: 0;
+      color: var(--foregroundlight);
+      width: 40vw;
+      min-width: 270px;
+      min-height: 70vh;
+    }
+    .promotion .promotioninfo * {
+      margin-bottom: 5vh;
+    }
+    .promotion button {
+      border-radius: 36px;
+      height: 72px;
+      width: 31vw;
+      min-width: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      background: var(--accent);
+      color: var(--foregroundlight);
+      box-shadow: 0px 0px 5px 2px var(--shadow);
+      border: none;
+      transition: 0.3s ease-out;
+    }
+    .promotion button:hover {
+      background: var(--focusaccent);
+      width: 32vw;
+    }
+    .promotion button * {
+      transform: translate(0px, 10px);
+      margin-right: 4px;
+      font-size: 3vh;
+    }
+    .promotion button span {
+      transform: translate(0px, 2.8vh);
+    }
+    .promotioninfo h4,
+    h1,
+    p {
+      text-align: justify;
+
+      align-self: flex-start;
+    }
+    .promotioninfo a {
+      font-style: italic;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .promotioninfo a:hover {
+      color: var(--accent);
+      transition: 0.3s ease;
+    }
+    .about .content {
+      display: flex;
+      flex-direction: column;
+      margin: 14vh 24px 24px 24px;
+    }
+    .about .content * {
+      margin-bottom: 5vh;
+    }
+    .about .infocontainer,
+    .about .mapcontainer {
+      display: inline-flex;
+      justify-content: space-evenly;
+    }
+    .about .satisfactioninfo {
+      justify-content: center;
+    }
+    .about .infocard {
+      padding: 24px 48px;
+      border-radius: 24px;
+    }
+    .infocontainer .infocard.left {
+      text-align: left;
+      background-color: transparent;
+      color: var(--foreground);
+    }
+    .infocontainer .infocard.left h1 {
+      font-size: xx-large;
+    }
+    .infocontainer .infocard.right {
+      min-width: 30vw;
+      background: url(assets/skyscrapers.jpg);
+      color: var(--foregroundlight);
+      overflow: hidden;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 200px;
+      box-shadow: 0px 2px 14px -12px var(--shadow);
+      transition: 0.3s ease;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(229, 229, 229, 0) 0%,
+        rgba(44, 44, 44, 1) 81%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        rgba(229, 229, 229, 0) 0%,
+        rgba(44, 44, 44, 1) 81%,
+        rgba(0, 0, 0, 1) 100%
+      );
+    }
+    .about .infocard p {
+      line-height: 32px;
+    }
+    .header .content {
+      min-height: 80vh;
+      margin: 14vh 0 0 0;
+      background: url(assets/minneapolis_medres.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    .header .logomask {
+      height: 80vh;
+      width: 100%;
+      animation: 0.5s ease 0s 1 slideFromBottom;
+    }
+    .about .mapcontainer img {
+      height: 50vh;
+      filter: drop-shadow(10px 10px 10px rgb(43 45 53 / 0.6));
+    }
+    .about .mapcontainer .infocard.right h1 {
+      text-align: left;
+    }
+    footer {
+      padding: 56px 0;
+      background-color: var(--foreground);
+      color: var(--foregroundlight);
+    }
+    @keyframes slideFromBottom {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+    }
+    strong {
+      color: var(--accent);
+    }
+  </style>
+
+  <body>
+    <nav class="navbar" id="navbar">
+      <img id="homelink" src="assets/logo.svg" alt="logo" />
+      <ul>
+        <li>
+          <a id="propertylink">PROPERTY</a>
+        </li>
+        <li>
+          <a id="aboutlink"><nobr>ABOUT US</nobr></a>
+        </li>
+      </ul>
+    </nav>
+    <header class="header" id="header">
+      <div class="content">
+        <img
+          class="logomask"
+          src="assets/logowithtextlight.svg"
+          alt="logowithtext"
+        />
+      </div>
+    </header>
+    <section class="promotion" id="promotion">
+      <div class="content">
+        <div class="promotioninfo" id="promotioncontent">
+          <h4>REAL LIVING REAL ESTATE</h4>
+          <h1><q>Dream homes for dreamers.</q></h1>
+          <p>
+            Whether you are looking for a cozy apartment, a spacious condo, or a
+            luxurious villa, we have the perfect property for you. Our team of
+            experienced and professional agents will help you find your dream
+            home in the best location, at the best price, and with the best
+            amenities.
+          </p>
+          <button id="getstarted">
+            <h2>View our latest bungalow home!</h2>
+            <span class="material-symbols-outlined"> arrow_forward </span>
+          </button>
+          <a>or check out our other properties!</a>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="content">
+        <div class="infocontainer" id="infocontainer">
+          <div class="infocard left" id="infocardleft">
+            <h1>About Us</h1>
+            <p>
+              Real Living Real Estate is a full-service real estate brokerage
+              franchise company with a comprehensive and integrated suite of
+              resources for franchisees and their sales professionals, as well
+              as for consumers who work with them. In 2016 and 2017, Real Living
+              Real Estate was named
+              <strong>"Real Estate Agency Brand of the Year"</strong> in the
+              ongoing <strong>Harris Poll EquiTrend®</strong> study; and was
+              named <strong>"Most Loved"</strong> and
+              <strong>"Most Trusted"</strong> real estate brand in the study in
+              consecutive years.
+            </p>
+            <p>
+              Additionally, the Real Living Brand and its innovative concepts
+              were <strong>recognized by Entrepreneur</strong> magazine as well
+              as <strong>Inman News</strong>, receiving several
+              <strong>Inman Innovator Awards</strong>. Real Living was also
+              named <strong>"the Most Promising New National Brand"</strong> by
+              the <strong>Swanepoel TRENDS Report</strong>. Real Living Real
+              Estate is a network brand of HSF Affiliates LLC, which is owned by
+              HomeServices of America, Inc., a Berkshire Hathaway affiliate.
+            </p>
+            <p>
+              Real Living leads the real estate industry with a customer
+              satisfaction rating of
+              <strong>98 percent</strong>, based upon research conducted by a
+              third party, independent research firm.
+            </p>
+          </div>
+          <div class="infocard right" id="infocardright"></div>
+        </div>
+        <div class="mapcontainer" id="mapcontainer">
+          <div class="infocard left">
+            <img src="assets/map.svg" alt="map" />
+          </div>
+          <div class="infocard right">
+            <h1>About HomeServices of America Inc.</h1>
+            <p>
+              Based in Minneapolis, Minnesota, HomeServices of America, Inc. is
+              the
+              <strong
+                >second-largest, full-service residential real estate brokerage
+                firm</strong
+              >
+              and the
+              <strong
+                >largest brokerage-owned settlement services provider in the
+                U.S.</strong
+              >
+              and is the majority owner in the Prudential Real Estate and Real
+              Living Real Estate franchise networks. Owned by MidAmerican Energy
+              Holdings Company, a consolidated subsidiary of Berkshire Hathaway
+              Inc., HomeServices' operating companies
+              <strong>offer integrated real estate services</strong>, including
+              brokerage services, mortgage originations, title and closing
+              services, property and casualty insurance, home warranties and
+              other homeownership services.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Copyright © 2023</footer>
+  </body>
+  <script>
+    const getstarted = document.getElementById("getstarted");
+    const aboutlink = document.getElementById("aboutlink");
+    const about = document.getElementById("about");
+    const homelink = document.getElementById("homelink");
+    const promotion = document.getElementById("promotion");
+    const promotioncontent = document.getElementById("promotioncontent");
+    const infocontainer = document.getElementById("infocontainer");
+    const header = document.getElementById("header");
+    const propertylink = document.getElementById("propertylink");
+    const mapcontainer = document.getElementById("mapcontainer");
+
+    getstarted.addEventListener("click", function () {
+      window.location.href = "page2.html";
+    });
+    aboutlink.addEventListener("click", function () {
+      about.scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+    homelink.addEventListener("click", function () {
+      header.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    });
+    propertylink.addEventListener("click", function () {
+      promotion.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    });
+    window.addEventListener("load", responsiveContent);
+    window.addEventListener("resize", responsiveContent);
+    function responsiveContent() {
+      var promotionrect = promotion.getBoundingClientRect();
+      if (promotionrect.width <= 500) {
+        promotioncontent.style.width = 100 + "vw";
+        promotioncontent.style.minWidth = "none";
+        infocontainer.style.display = "inline-block";
+        mapcontainer.style.display = "inline-block";
+      } else {
+        promotioncontent.style.width = 40 + "vw";
+        promotioncontent.style.minWidth = 270 + "px";
+        infocontainer.style.display = "inline-flex";
+        mapcontainer.style.display = "inline-flex";
+      }
+    }
+  </script>
+</html>

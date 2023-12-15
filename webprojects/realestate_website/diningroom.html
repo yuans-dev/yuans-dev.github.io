@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Living Real Estate</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+    :root {
+      --primary: #d2e0f4;
+      --secondary: #5a7494;
+      --accent: #cf3333;
+      --focusaccent: #b20606;
+      --accent2: #939bb1;
+      --foreground: rgb(43, 45, 53);
+      --foregroundlight: #ecf0ff;
+      --shadow: rgb(4, 16, 23);
+      font-family: "Poppins", sans-serif;
+    }
+    .material-symbols-outlined {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+    body {
+      text-align: center;
+      color: var();
+      background: var(--foreground);
+      margin: 0;
+      padding: 0;
+    }
+    p {
+      text-indent: 36px;
+      text-align: justify;
+    }
+    q {
+      font-style: italic;
+    }
+    .navbar {
+      display: flex;
+      vertical-align: middle;
+      align-items: center;
+      justify-content: flex-start;
+      height: 6vh;
+      width: 100%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      position: fixed;
+      z-index: 2;
+      background-color: var(--primary);
+    }
+    .navbar img {
+      height: 6vh;
+      width: 10vw;
+      min-width: 80px;
+      cursor: pointer;
+
+      transition: 0.3s ease;
+    }
+    .navbar img:hover {
+      width: 11vw;
+      filter: drop-shadow(0px 0px 2px rgb(0 0 0 / 0.3));
+      transition: 0.3s ease;
+    }
+    .navbar ul {
+      padding: 0;
+      margin: 24px 0;
+      display: flex;
+      list-style: none;
+    }
+    .navbar ul li {
+      width: 12vw;
+
+      transition: 0.3s ease;
+      padding: 8px;
+      overflow: hidden;
+    }
+    .navbar ul li:hover {
+      width: 13vw;
+      transition: 0.3s ease;
+    }
+    .navbar ul li a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-size: large;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .navbar ul li:hover a {
+      color: var(--secondary);
+      transition: 0.3s ease;
+    }
+    section,
+    header {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .content {
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      align-items: center;
+      animation: 1s ease 0s 1 expand;
+    }
+    .content .text {
+      position: absolute;
+      text-align: left;
+      background-color: var(--foreground);
+      height: 100vh;
+      padding: 24vh 48px 0 48px;
+      color: var(--foregroundlight);
+      width: 25vw;
+    }
+    .text h1 {
+      font-size: xx-large;
+    }
+    .content .img {
+      position: absolute;
+      right: 0;
+      height: 100vh;
+      width: 67vw;
+      background: url(assets/dining.jpeg);
+      background-position: center;
+      background-size: cover;
+      transition: 0.3s ease;
+      box-shadow: 0px 0px 10px 2px var(--shadow);
+    }
+    .content.compact {
+      position: unset;
+      flex-direction: column;
+      overflow: hidden;
+      align-items: unset;
+      animation: 1s ease 0s 1 expandHeight;
+    }
+    .content.compact .img {
+      position: unset;
+      height: 100%;
+      width: 100%;
+    }
+    .content.compact .img:hover {
+      width: 100%;
+      transition: 0.3s ease;
+    }
+    .content.compact .text {
+      position: unset;
+      padding: 48px;
+      height: 50%;
+      width: 80%;
+    }
+    .content .img:hover {
+      width: 70vw;
+      transition: 0.3s ease;
+    }
+    @keyframes expand {
+      0% {
+        width: 0;
+        opacity: 0;
+      }
+      100% {
+        width: 100vw;
+        opacity: 1;
+      }
+    }
+    @keyframes expandHeight {
+      0% {
+        height: 0;
+        opacity: 0;
+      }
+      100% {
+        height: 100vh;
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <body>
+    <nav class="navbar" id="navbar">
+      <img id="homelink" src="assets/logo.svg" alt="logo" />
+      <ul>
+        <li>
+          <a href="page2.html"><nobr>FLOOR PLAN</nobr></a>
+        </li>
+        <li id="dininglink">
+          <a><nobr>DINING ROOM</nobr></a>
+        </li>
+        <li id="livinglink">
+          <a href="livingroom.html"><nobr>LIVING ROOM</nobr></a>
+        </li>
+        <li id="masterlink">
+          <a href="masterbedroom.html"><nobr>MASTER BEDROOM</nobr></a>
+        </li>
+        <li id="kitchenlink">
+          <a><nobr>KITCHEN</nobr></a>
+        </li>
+        <li id="librarylink">
+          <a href="library.html"><nobr>LIBRARY</nobr></a>
+        </li>
+      </ul>
+    </nav>
+    <section class="preview" id="preview">
+      <div class="content" id="content">
+        <div class="text">
+          <h1><nobr>Dining Room</nobr></h1>
+          <p>
+            The dining room can comfortably seat large parties. The room is
+            surrounded by windows, which gives diners a view of the beautiful
+            backyard. A pass-through into the kitchen is provided, which allows
+            for easy access to diners' needs.
+          </p>
+          <p>
+            Call us at <strong>1-555-NEW-HOME</strong> or e-mail us at
+            <strong>hometour@isp.com</strong> for more information or to
+            schedule a showing.
+          </p>
+        </div>
+        <div class="img"></div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const homelink = document.getElementById("homelink");
+    homelink.addEventListener("click", function () {
+      window.location.href = "ex2.html";
+    });
+  </script>
+  <script>
+    const preview = document.getElementById("preview");
+    const content = document.getElementById("content");
+    window.addEventListener("load", responsiveContent);
+    window.addEventListener("resize", responsiveContent);
+    function responsiveContent() {
+      var previewrect = preview.getBoundingClientRect();
+      if (previewrect.width <= 600) {
+        content.classList.add("compact");
+      } else {
+        content.classList.remove("compact");
+      }
+    }
+  </script>
+</html>
