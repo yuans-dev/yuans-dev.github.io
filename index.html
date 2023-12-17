@@ -54,15 +54,6 @@
                   <img class="projecttypeicon" src="assets/Web.svg" alt="web"
                 /></a>
               </li>
-              <li>
-                <a href=""
-                  ><h3>Music Blog Website</h3>
-                  <img class="projecttypeicon" src="assets/Web.svg" alt="web"
-                /></a>
-              </li>
-              <li>
-                <a href=""><h3>Project C</h3></a>
-              </li>
             </ul>
           </li>
           <li id="navdownload-btn">
@@ -95,9 +86,9 @@
         </button>
       </div>
     </div>
-    <div class="herobanner">
+    <section class="herobanner">
       <div class="videodiv">
-        <video autoplay muted loop class="rainoverlay">
+        <video autoplay muted loop class="dustoverlay">
           <source src="assets/dust_overlay.mp4" type="video/mp4" />
         </video>
       </div>
@@ -106,7 +97,7 @@
         <h2>Front-end developer</h2>
         <h2>Page content coming soon!</h2>
       </div>
-    </div>
+    </section>
 
     <script>
       const navbar = document.getElementById("navbar");
@@ -127,10 +118,16 @@
         var navbarrect = navbar.getBoundingClientRect();
         //console.log(navbarrect.width);
         if (navbarrect.width <= 600) {
+          if (!navbar.classList.contains("compact")) {
+            navigation.classList.add("collapsewidth");
+          }
           navbar.classList.add("compact");
           hometext.style.display = "none";
           homeicon.style.display = "flex";
         } else {
+          if (navbar.classList.contains("compact")) {
+            navigation.classList.remove("collapsewidth");
+          }
           navbar.classList.remove("compact");
           homeicon.style.display = "none";
           hometext.style.display = "flex";
@@ -158,7 +155,7 @@
         var currentpos = projectspopup.getBoundingClientRect();
         console.log(projectbtnpos.left);
         console.log(currentpos.left);
-        projectspopup.style.marginTop = projectbtnpos.bottom;
+        projectspopup.style.top = projectbtnpos.bottom + "px";
         projectspopup.style.left = projectbtnpos.left - 12 + "px";
       }
     </script>
